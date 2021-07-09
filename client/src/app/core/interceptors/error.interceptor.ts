@@ -12,7 +12,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
-      catchError(error => {
+        catchError(error => {
          if (error) {
             if (error.status === 400){
                 if (error.error.errors){

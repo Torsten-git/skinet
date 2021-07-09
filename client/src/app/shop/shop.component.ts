@@ -13,7 +13,7 @@ import { IType } from '../shared/models/productType';
 })
 
 export class ShopComponent implements OnInit {
-    @ViewChild('search', {static: true}) searchTerm: ElementRef;
+    @ViewChild('search', {static: false}) searchTerm: ElementRef;
     products: IProduct[];
     brands: IBrand[];
     types: IType[];
