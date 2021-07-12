@@ -22,13 +22,14 @@ namespace API.Controllers
             return Ok(basket ?? new CustomerBasket(id));
         }
 
+        [HttpPost]    
         public async Task<ActionResult<CustomerBasket>> UpdateBasket(CustomerBasket basket)
         {
             var updatedbasket = await _basketRepository.UpdateBasketAsync(basket);
 
             return Ok(updatedbasket);
-        }
-
+        } 
+ 
         [HttpDelete]
         public async Task DeleteBasketAsync(string id)
         {
