@@ -21,16 +21,16 @@ namespace API.Controllers
 
         private readonly IGenericRepository<Product> _productRepo;
 
-        private readonly IGenericRepository<ProductBrand> _productBradRepo;
+        private readonly IGenericRepository<ProductBrand> _productBrandRepo;
         private readonly IGenericRepository<ProductType> _productTypeRepo;
         private readonly IMapper _mapper;
 
         public ProductsController(IGenericRepository<Product> productRepo,
-            IGenericRepository<ProductBrand> productBradRepo, IGenericRepository<ProductType> productTypeRepo, IMapper mapper)
+            IGenericRepository<ProductBrand> productBrandRepo, IGenericRepository<ProductType> productTypeRepo, IMapper mapper)
         {
             _mapper = mapper;
             _productTypeRepo = productTypeRepo;
-            _productBradRepo = productBradRepo;
+            _productBrandRepo = productBrandRepo;
             _productRepo = productRepo;
 
         }
@@ -69,7 +69,7 @@ namespace API.Controllers
         [HttpGet("brands")]
         public async Task<ActionResult<List<ProductBrand>>> GetProductBrands()
         {
-            var brands = await _productBradRepo.ListAllAsync();
+            var brands = await _productBrandRepo.ListAllAsync();
             return Ok(brands);
         }
 
